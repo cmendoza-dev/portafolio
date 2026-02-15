@@ -14,7 +14,7 @@ const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 6;
+  const projectsPerPage = 4;
 
   const filteredProjects = projects.filter(project => {
     const matchesCategory = selectedCategory === 'all' || project.category === selectedCategory;
@@ -28,7 +28,7 @@ const Portfolio = () => {
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
-  const currentProjects = filteredProjects.slice(startIndex, endIndex);
+  const currentProjects = filteredProjects.reverse().slice(startIndex, endIndex);
 
   // Reset to first page when filters change
   useEffect(() => {
@@ -301,26 +301,26 @@ const Portfolio = () => {
                 Carlos Mendoza
               </h1>
               <h2 className={`text-2xl md:text-3xl font-semibold text-blue-600 mb-4`}>
-                Desarrollador Full Stack
+                Desarrollador de Software
               </h2>
             </div>
 
             <p className={`text-xl md:text-2xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-8 max-w-3xl mx-auto`}>
-              Especializado en desarrollo web, análisis de datos y ciberseguridad con enfoque en los sectores agroindustrial y salud
+              Interesado en proyectos sociales y soluciones digitales
             </p>
 
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               <div className={`px-4 py-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-md`}>
-                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>3+</div>
+                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>1+</div>
                 <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Años de experiencia</div>
               </div>
               <div className={`px-4 py-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-md`}>
-                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>15+</div>
+                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>5+</div>
                 <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Proyectos completados</div>
               </div>
               <div className={`px-4 py-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-md`}>
-                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>10+</div>
+                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>8+</div>
                 <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Tecnologías dominadas</div>
               </div>
             </div>
@@ -351,7 +351,7 @@ const Portfolio = () => {
               Sobre mí
             </h2>
             <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              Soy un desarrollador de software apasionado por crear soluciones tecnológicas innovadoras que generen impacto real en sectores críticos como la salud y la agricultura.
+            Me apasiona crear productos de software que no solo funcionen, sino que marquen una diferencia. Siempre busco ir más allá, guiado por valores como la justicia, el esfuerzo y el compromiso con lo que hago. Disfruto trabajar con orden, enfoque y bajo retos exigentes, entregando soluciones de calidad en el tiempo previsto.
             </p>
           </div>
           
@@ -376,11 +376,13 @@ const Portfolio = () => {
                 Análisis de Datos
               </h3>
               <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Extracción de insights valiosos mediante Python, ML y visualizaciones interactivas
+                Extracción de insights valiosos mediante Python, SQL y visualizaciones interactivas
               </p>
             </div>
+
             
-            <div className="text-center">
+            
+            {/* <div className="text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="text-white" size={32} />
               </div>
@@ -390,7 +392,7 @@ const Portfolio = () => {
               <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Protección de sistemas y datos mediante análisis de vulnerabilidades y monitoreo
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -668,7 +670,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              © 2025 Carlos Mendoza. Desarrollado con React, Next.js y mucho ☕
+              © {new Date().getFullYear()} Carlos Mendoza. Desarrollado con React, Next.js y mucho ☕
             </p>
           </div>
         </div>
